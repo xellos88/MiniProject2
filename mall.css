@@ -49,8 +49,9 @@ ul{
 .bannerText b {
     font-size: 24px;
     font-weight: bold;
+}
 
-    .banner2 {
+.banner2 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,6 +95,7 @@ ul{
     font-size: 24px;
     font-weight: bold;
 }
+
 /* 3*1배너 */
 /* 3x1 그리드 스타일 */
 .grid-container2 {
