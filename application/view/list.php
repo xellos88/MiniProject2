@@ -8,10 +8,10 @@
 </head>
 <body>
     LIST FILE ㄟ( ▔, ▔ )ㄏ
-    <button id="logout" onclick="redirectLogout()">Logout</button>
+    <button id="logout" onclick="redirectLogout();">Logout</button>
 
     <script>
-        function redirectLogout{
+        function redirectLogout(){
             location.href = "/user/logout";
         }
     </script>
