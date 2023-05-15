@@ -38,11 +38,11 @@ class Controller {
     //model 호출하고 결과를 리턴
     protected function getModel($identityName){
         //model 생성 체크
-        if(!in_array($identityName, self::$modelList)){
-            $modelName = UrlUtil::replaceSlashToBackslash(_PATH_MODEL.$identityName._BASE_FILENAME_MODEL);
-            self::$modelList[$identityName] = new $modelName(); //model class 호출
+        if(!in_array($identityName, self::$modelList)){//$identityName에 해당하는 모델이 생성되지 않은 경우 실행
+            $modelName = UrlUtil::replaceSlashToBackslash(_PATH_MODEL.$identityName._BASE_FILENAME_MODEL);//$identityName에 따라 모델의 경로를 정의
+            self::$modelList[$identityName] = new $modelName(); //model class 호출, $identityName에 따라 모델을 생성
         }
-        return self::$modelList[$identityName];
+        return self::$modelList[$identityName];//$identityName에 따라 모델을 생성
     }
 
     //파라미터를 확인해서 해당하는 view를 리턴하거나,redirect
@@ -53,14 +53,12 @@ class Controller {
             header($view);
             exit();
         }
-
         return _PATH_VIEW.$view;
     }
 
     //동적 속성(DynamicProperty)를 셋팅하는 메소드
     protected function addDynamicProperty($key, $val){
         $this-> $key = $val;
-
     }
 
     //유저 권한 체크 메소드

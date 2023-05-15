@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Black+Han+Sans&family=Do+Hyeon&family=Dongle&family=Gothic+A1&family=Gowun+Dodum&family=IBM+Plex+Sans+KR&family=Jua&family=Nanum+Gothic&family=Noto+Sans+KR&family=Stylish&family=Sunflower:wght@500&display=swap');
+*{
+    font-family: "Noto Sans KR", sans-serif;
+}
+.container h1{
+    font-size: 80px;
+}
+.col {
+    padding: 10px;
+}
+ul{
+    list-style:none;
+}
+/* 2*2배너 */
+
+.banner {
+padding: 20px;
+}
+
+.grid-container {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-gap: 20px;
+}
+
+.bannerContainer {
+position: relative;
+overflow: hidden;
+}
+
+.bannerContainer img {
+width: 100%;
+height: auto;
+object-fit: cover;
+}
+
+.bannerText {
+position: absolute;
+bottom: 20px;
+left: 20px;
+color: #fff;
+}
+
+.bannerText p {
+font-size: 16px;
+margin: 0;
+}
+
+.bannerText b {
+font-size: 24px;
+margin: 0;
+}
+
+.bannerContainer:hover {
+transform: scale(1.05);
+}
+
+.bannerContainer:hover .bannerText {
+bottom: 30px;
+}
+
+footer {
+    bottom : 0;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer a {
+color: #fff;
+text-decoration: none;
+}
