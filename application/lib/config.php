@@ -23,4 +23,6 @@ define("_BASE_REDIRECT","Location: ");
 
 define("_STR_LOGIN_ID", "u_id");
 
+//네비
+define("URL_NAV", "application/view/nav.php" );
 ?>

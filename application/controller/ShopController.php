@@ -7,3 +7,9 @@ class ShopController extends Controller {
         return "main"._EXTENSION_PHP;
     }
 }
+
+class homeController extends Controller {
+    public function homeGet() {
+        return "main"._EXTENSION_PHP;
+    }
+}
