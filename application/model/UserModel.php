@@ -49,6 +49,42 @@ class UserModel extends Model{
             return false;
         }
     }
+    //update user
+    public function updateUser($arrUserInfo){
+        $sql = "UPDATE user_info SET u_pw=:u_pw, u_name=:u_name WHERE u_id=:u_id";
+    
+        $prepare = [
+            ":u_id" => $arrUserInfo["id"]
+            ,":u_pw" => $arrUserInfo["pw"]
+            ,":u_name" => $arrUserInfo["name"]
+        ];
+    
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $result = $stmt->execute($prepare);
+            return $result;
+        } catch (Exception $e) {
+            echo "UserModel -> updateUser Error: ".$e->getMessage();
+            return false;
+        }
+    }
 
-
+    //delete user
+    public function deleteUser($userId) {
+        $sql = "UPDATE user_info SET is_deleted=1 WHERE u_id=:u_id";
+    
+        $prepare = [
+            ":u_id" => $userId
+        ];
+    
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $result = $stmt->execute($prepare);
+            return $result;
+        } catch (Exception $e) {
+            echo "UserModel -> deleteUser Error: ".$e->getMessage();
+            return false;
+        }
+    }
+    
 }

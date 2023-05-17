@@ -1,6 +1,6 @@
 <?php
 
-define("_ROOT", $_SERVER["DOCUMENT_ROOT"]);
+define("_ROOT", $_SERVER["DOCUMENT_ROOT"]."/");
 
 //DB관련
 define("_DB_HOST", "localhost");
@@ -24,5 +24,5 @@ define("_BASE_REDIRECT","Location: ");
 define("_STR_LOGIN_ID", "u_id");
 
 //네비
-define("URL_NAV", "application/view/nav.php" );
+define("URL_NAV", _ROOT._PATH_VIEW."nav.php" );
 ?>

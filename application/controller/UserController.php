@@ -33,7 +33,7 @@ class UserController extends Controller {//UserController 클래스가 Controlle
         return _BASE_REDIRECT."/shop/main";
     }
 
-    //회원가입
+    //////////회원가입//////////
     public function registGet() {
         return "regist"._EXTENSION_PHP;
     }
@@ -46,8 +46,13 @@ class UserController extends Controller {//UserController 클래스가 Controlle
             $arrChkErr["id"] = "ID는 12글자 이하로 입력해 주세요.";
         }
         //ID영문 숫자 체크(추가)
-        if (!ctype_alnum($arrPost["id"])) {
-            $arrChkErr["id"] = "ID는 영문, 숫자만 입력 가능합니다.";
+        // if (!ctype_alnum($arrPost["id"])) {
+        //     $arrChkErr["id"] = "ID는 영문, 숫자만 입력 가능합니다.";
+        // }
+        $pattern = "/[^a-zA-Z0-9]/";
+        if(preg_match($pattern, $arrPost["id"]) !==0){
+            $arrChkErr["id"]= "ID는 영어 대소문자, 숫자만 입력 가능합니다.";
+            $arrPost["id"]="";
         }        
 
         //PW 글자수 체크
@@ -56,13 +61,9 @@ class UserController extends Controller {//UserController 클래스가 Controlle
         }
 
         //pw 영문 숫자 특수 문자 체크(추가)
-        if (!ctype_graph($arrPost["pw"])) {
-            $arrChkErr["pw"] = "PW는 영문, 숫자, 특수문자만 입력 가능합니다.";
+        if (!preg_match('/^(?=.*[a-z])(?=.*\d)[a-z\d!@#$%^&*(),.?":{}|<>]{8,}$/', $arrPost["pw"])) {
+            $arrChkErr["pw"] = "PW는 영문와 숫자, 특수문자를 최소 1개 이상 포함하여 8자리 이상 입력해야 합니다.";
         }
-        // if (!ctype_alnum($arrPost["pw"]) || !preg_match('/[!@#$%^&*(),.?":{}|<>]/', $arrPost["pw"])) {
-        //     $arrChkErr["pw"] = "PW는 영문, 숫자, 특수문자를 혼합하여 입력해야 합니다.";
-        // }
-                
 
         //비밀번호와 비밀번호체크확인
         if ($arrPost["pw"] !== $arrPost["pwChk"]) {
@@ -106,4 +107,76 @@ class UserController extends Controller {//UserController 클래스가 Controlle
         //로그인페이지로 이동
         return _BASE_REDIRECT."/user/login"; 
     }
+
+    //////////수정페이지//////////
+    public function myGet() {
+        return "my"._EXTENSION_PHP;
+    }
+    public function myPost() {
+        $arrPost = $_POST;
+        $arrChkerr = [];
+        $arrPost["id"]=$_SESSION[_STR_LOGIN_ID];
+
+        //PW 글자수 체크
+        if(mb_strlen($arrPost["pw"]) < 8 || mb_strlen($arrPost["pw"]) > 20 ){
+            $arrChkErr["pw"] = "pw는 8~12글자 이하로 입력해 주세요.";
+        }
+
+        //pw 영문 숫자 특수 문자 체크(추가)
+        if (!preg_match('/^(?=.*[a-z])(?=.*\d)[a-z\d!@#$%^&*(),.?":{}|<>]{8,}$/', $arrPost["pw"])) {
+            $arrChkErr["pw"] = "PW는 영문와 숫자, 특수문자를 최소 1개 이상 포함하여 8자리 이상 입력해야 합니다.";
+        }
+        
+        //비밀번호와 비밀번호체크확인
+        if ($arrPost["pw"] !== $arrPost["pwChk"]) {
+            $arrChkErr["pwChk"] = "비밀번호와 비밀번호 확인이 일치하지 않습니다.";
+        }        
+
+        //NAME 글자수 체크
+        if(mb_strlen($arrPost["name"]) === 0 || mb_strlen($arrPost["name"]) > 30){
+            $arrChkErr["name"] = "이름은 30글자 이하로 입력해 주세요.";
+        }
+
+        //유효성 체크 에러일 경우
+        if(!empty($arrChkErr)){
+            //에러메세지 셋팅
+            $this -> addDynamicProperty('arrError', $arrChkErr);
+            return "my"._EXTENSION_PHP;
+        }
+
+        // 유저 정보를 수정합니다.
+        $result = $this->model->updateUser($arrPost);
+        if (!$result) {
+            // 유저 정보 수정에 실패한 경우 에러메시지 셋팅
+            $errMsg = "유저 정보 수정에 실패했습니다.";
+            $this->addDynamicProperty("errMsg", $errMsg);
+            return "my"._EXTENSION_PHP;
+        }
+    
+        // 마이페이지로 리다이렉트합니다.
+        return _BASE_REDIRECT."/user/my";
+    }
+
+/////유저삭제////
+    public function deletePost() {
+        $userId = $_SESSION[_STR_LOGIN_ID];
+        
+        // 유저 정보를 삭제합니다.
+        $result = $this->model->deleteUser($userId);
+        
+        if ($result) {
+            // 성공적으로 삭제된 경우, 로그아웃 처리하고 메인 페이지로 이동합니다.
+            session_destroy();
+            header(_BASE_REDIRECT."/user/login");
+            exit;
+        } else {
+            // 삭제에 실패한 경우, 에러 메시지를 출력하고 마이 페이지로 이동합니다.
+            $errMsg = "회원 탈퇴에 실패했습니다. 다시 시도해 주세요.";
+            $this->addDynamicProperty("errMsg", $errMsg);
+            return "my"._EXTENSION_PHP;
+        }
+    }
+    
 }
+
+?>

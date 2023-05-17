@@ -183,7 +183,7 @@
 
 <!-- 3*1배너 -->
 
-<!-- <div class="banner2">
+<div class="banner2">
     <div class="grid-container2">
         <a href="/goods/event_sale.php?sno=187" target="">
             <div class="bannerContainer2">
@@ -213,7 +213,7 @@
             </div>
         </a>
     </div>
-</div> -->
+</div>
 </div>
 <!-- 상단이동 푸터 -->
 <footer>

@@ -52,12 +52,11 @@ input[type="password"] {
 
 .btn2{
     text-align: center;
-    width: 40%;
+    width: 20%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius:0px;
 }
-
 
 .container {
     height: 100%;
@@ -84,7 +83,7 @@ input[type="password"] {
     box-sizing: border-box;
 }
 #id{
-    width: 30%;
+    width: 40%;
 }
 
 span {

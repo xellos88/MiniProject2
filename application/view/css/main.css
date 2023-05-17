@@ -72,3 +72,41 @@ footer a {
 color: #fff;
 text-decoration: none;
 }
+/* 3*1배너 */
+.grid-container2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.bannerContainer2 {
+    position: relative;
+}
+
+.bannerTxt2 {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.bannerTxt2 p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.bannerTxt2 b {
+    display: block;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin-top: 5px;
+}
+.bannerContainer2 img {
+    max-width: 100%;
+    height: auto;
+}

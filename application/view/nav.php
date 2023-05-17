@@ -83,7 +83,21 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/user/login">LOGIN</a>
+                <?php if (isset($_SESSION[_STR_LOGIN_ID])) { ?>
+                <li class="nav-item"> <!--로그인 O -->
+                    <span class="nav-link" style="color: white;"><?php echo $_SESSION[_STR_LOGIN_ID]; ?> 님 반갑습니다.😀</span>          
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  href="/user/my">MY</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #FEFF86;" href="/user/logout">LOG OUT</a>
+                </li>
+            <?php } else { ?>
+                <li class="nav-item"> <!--로그인 X -->
+                    <a class="nav-link" href="/user/login">LOGIN</a>
+                </li>                
+        <?php } ?>
             </li>
 
             </ul>

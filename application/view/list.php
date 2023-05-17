@@ -7,7 +7,7 @@
     <title>list</title>
 </head>
 <body>
-    LIST FILE ㄟ( ▔, ▔ )ㄏ
+    LIST FILE
     <button id="logout" onclick="redirectLogout();">Logout</button>
 
     <script>
