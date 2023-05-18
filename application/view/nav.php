@@ -85,7 +85,7 @@
             <li class="nav-item">
                 <?php if (isset($_SESSION[_STR_LOGIN_ID])) { ?>
                 <li class="nav-item"> <!--로그인 O -->
-                    <span class="nav-link" style="color: white;"><?php echo $_SESSION[_STR_LOGIN_ID]; ?> 님 반갑습니다.😀</span>          
+                    <span class="nav-link" style="color: white;"> WELCOME <?php echo $_SESSION[_STR_LOGIN_ID]; ?>😀</span>          
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"  href="/user/my">MY</a>
@@ -103,7 +103,13 @@
             </ul>
             <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light " type="submit">SEARCH</button>
+            <button id="searchBtn" class="btn btn-outline-light" type="submit">SEARCH</button>
+            <script>
+                const searchBtn = document.getElementById("searchBtn");
+                searchBtn.addEventListener("click", () => {
+                alert("검색 기능은 현재 준비 중입니다.");
+                });
+            </script>
             </form>
         </div>
         </div>

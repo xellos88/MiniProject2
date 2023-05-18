@@ -5,6 +5,8 @@ span{
 }
 *{
     font-family: "Noto Sans KR", sans-serif;
+}
+html {
     scroll-behavior: smooth;
 }
 h3{
@@ -42,19 +44,17 @@ input[type="password"] {
     width: 30%;
 } */
 
-.btn1{
+#btn1{
     text-align: center;
-    width: 9.5%;
+    width: 30%;
     padding: 10px;
-    border: 1px solid #ccc;
     border-radius:0px;
 }
 
-.btn2{
+#btn2{
     text-align: center;
-    width: 20%;
+    width: 10%;
     padding: 10px;
-    border: 1px solid #ccc;
     border-radius:0px;
 }
 

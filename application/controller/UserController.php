@@ -112,6 +112,13 @@ class UserController extends Controller {//UserController 클래스가 Controlle
     public function myGet() {
         return "my"._EXTENSION_PHP;
     }
+    // public function myGet() {
+    //     // $id = $_SESSION[_STR_LOGIN_ID];
+    //     // $userInfo = $this->model->getUser($id, false);
+    //     // $this->addDynamicProperty("userInfo" ,$result[0]);
+    //     return "my"._EXTENSION_PHP;
+    // }
+
     public function myPost() {
         $arrPost = $_POST;
         $arrChkerr = [];
@@ -158,25 +165,23 @@ class UserController extends Controller {//UserController 클래스가 Controlle
     }
 
 /////유저삭제////
-    public function deletePost() {
-        $userId = $_SESSION[_STR_LOGIN_ID];
-        
-        // 유저 정보를 삭제합니다.
-        $result = $this->model->deleteUser($userId);
-        
-        if ($result) {
-            // 성공적으로 삭제된 경우, 로그아웃 처리하고 메인 페이지로 이동합니다.
-            session_destroy();
-            header(_BASE_REDIRECT."/user/login");
-            exit;
-        } else {
-            // 삭제에 실패한 경우, 에러 메시지를 출력하고 마이 페이지로 이동합니다.
-            $errMsg = "회원 탈퇴에 실패했습니다. 다시 시도해 주세요.";
-            $this->addDynamicProperty("errMsg", $errMsg);
-            return "my"._EXTENSION_PHP;
-        }
-    }
+public function deletePost() {
+    $userId = $_SESSION[_STR_LOGIN_ID];
     
+    // 유저 정보를 삭제합니다.
+    $result = $this->model->deleteUser($userId);
+    
+    if ($result) {
+        // 성공적으로 삭제된 경우, 로그아웃 처리하고 메인 페이지로 이동합니다.
+        session_destroy();
+        header(_BASE_REDIRECT."/user/login");
+        exit;
+    } else {
+        // 삭제에 실패한 경우, 에러 메시지를 출력하고 마이 페이지로 이동합니다.
+        $errMsg = "회원 탈퇴에 실패했습니다. 다시 시도해 주세요.";
+        $this->addDynamicProperty("errMsg", $errMsg);
+        return "my"._EXTENSION_PHP;
+    }
 }
-
+}
 ?>

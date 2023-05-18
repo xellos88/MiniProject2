@@ -34,15 +34,15 @@
         </span>
         <br>
         <label for="name"></label>
-        <input type="text" name="name" id="name" placeholder="Name" value="<?php echo isset($_POST['name']) ? $_POST['name'] : '' ?>">
+        <input type="text" name="name" id="name" placeholder="Name" value="">
         <span>
             <?php if(isset($this->arrError["name"])) {
                 echo $this->arrError["name"];
             } ?>
         </span>
         <br>
-        <button type="submit" class="btn2 btn-light">수정</button>
-        <button type="submit" class="btn2 btn-light" formaction="/user/delete">탈퇴</button> 
+        <button type="submit" class="btn btn-dark" id="btn1">UPDATE</button>
+        <button type="submit" class="btn btn-danger" id="btn2" formaction="/user/delete">DELETE</button>
     </form>
 </div>    
     <script src="/application/view/js/common.js"></script>

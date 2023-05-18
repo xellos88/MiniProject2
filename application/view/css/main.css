@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Black+Han+Sans&family=Do+Hyeon&family=Dongle&family=Gothic+A1&family=Gowun+Dodum&family=IBM+Plex+Sans+KR&family=Jua&family=Nanum+Gothic&family=Noto+Sans+KR&family=Stylish&family=Sunflower:wght@500&display=swap');
 *{
     font-family: "Noto Sans KR", sans-serif;
+}
+html {
     scroll-behavior: smooth;
 }
 .container h1{
@@ -11,6 +13,11 @@
 }
 ul{
     list-style:none;
+}
+h1 img {
+    margin: 10px;
+    width: 10%;
+    height: auto;
 }
 /* 2*2배너 */
 
@@ -61,16 +68,25 @@ bottom: 30px;
 }
 
 footer {
-    bottom : 0;
-    background-color: #333;
+    /* background-color: #333; */
     color: #fff;
-    padding: 20px;
+    padding: 10px;
+    margin-top: 10px;
+    text-align: right;
+    width: 4%;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 8px;
+    right: 16px;
+    background: black;
+    opacity: 0.8;
     text-align: center;
 }
 
 footer a {
-color: #fff;
-text-decoration: none;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
 }
 /* 3*1배너 */
 .grid-container2 {
@@ -109,4 +125,11 @@ text-decoration: none;
 .bannerContainer2 img {
     max-width: 100%;
     height: auto;
+}
+
+video {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
