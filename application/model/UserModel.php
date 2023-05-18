@@ -3,11 +3,11 @@ namespace application\model;
 
 class UserModel extends Model{
     public function getUser($arrUserInfo, $pwFlg = true) {
-        $sql = "select * from user_info where u_id = :id ";
+        $sql = " SELECT * FROM user_info WHERE u_id = :id AND del_flg = '0' ";
 
         //PW 추가할 경우
         if($pwFlg){
-            $sql .= "and u_pw = :pw";
+            $sql .= " and u_pw = :pw";
         }
         $prepare = [
             ":id"   =>$arrUserInfo["id"]
@@ -49,6 +49,7 @@ class UserModel extends Model{
             return false;
         }
     }
+    
     //update user
     public function updateUser($arrUserInfo){
         $sql = "UPDATE user_info SET u_pw=:u_pw, u_name=:u_name WHERE u_id=:u_id";
@@ -71,7 +72,7 @@ class UserModel extends Model{
 
     //delete user
     public function deleteUser($userId) {
-        $sql = "UPDATE user_info SET is_deleted=1 WHERE u_id=:u_id";
+        $sql = "UPDATE user_info SET del_flg='1' WHERE u_id=:u_id";
     
         $prepare = [
             ":u_id" => $userId
