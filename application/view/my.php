@@ -34,7 +34,7 @@
         </span>
         <br>
         <label for="name"></label>
-        <input type="text" name="name" id="name" placeholder="Name" value="">
+        <input type="text" name="name" id="name" placeholder="Name" value="<?php echo $this->userInfo["u_name"]?>">
         <span>
             <?php if(isset($this->arrError["name"])) {
                 echo $this->arrError["name"];

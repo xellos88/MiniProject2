@@ -109,15 +109,16 @@ class UserController extends Controller {//UserController 클래스가 Controlle
     }
 
     //////////수정페이지//////////
-    public function myGet() {
-        return "my"._EXTENSION_PHP;
-    }
     // public function myGet() {
-    //     // $id = $_SESSION[_STR_LOGIN_ID];
-    //     // $userInfo = $this->model->getUser($id, false);
-    //     // $this->addDynamicProperty("userInfo" ,$result[0]);
     //     return "my"._EXTENSION_PHP;
     // }
+    public function myGet() {
+        $id['id'] = $_SESSION[_STR_LOGIN_ID];
+        $userInfo = $this->model->getUser($id, false);
+        $this->addDynamicProperty("userInfo" ,$userInfo[0]);
+        var_dump($userInfo);
+        return "my"._EXTENSION_PHP;
+    }
 
     public function myPost() {
         $arrPost = $_POST;
