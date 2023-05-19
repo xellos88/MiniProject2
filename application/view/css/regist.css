@@ -16,50 +16,20 @@ h3{
 ul{
     list-style:none;
 }
-/* .container {
-    height: 100%;
-    width: 300px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-}
-.form {
-    display: flex;
-    flex-direction: column;
-}
 
-.label {
-    font-weight: bold;
-}
-
-input[type="text"],
-input[type="password"] {
-    width: 40%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-#id{
-    width: 30%;
-} */
-
-.btn1{
+#btn1{
     text-align: center;
     width: 9.5%;
-    padding: 10px;
-    border: 1px solid #ccc;
     border-radius:0px;
 }
 
-.btn2{
+#btn2{
     text-align: center;
     width: 40%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius:0px;
 }
-
 
 .container {
     height: 100%;

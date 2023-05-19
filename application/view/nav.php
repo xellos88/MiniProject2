@@ -85,7 +85,7 @@
             <li class="nav-item">
                 <?php if (isset($_SESSION[_STR_LOGIN_ID])) { ?>
                 <li class="nav-item"> <!--로그인 O -->
-                    <span class="nav-link" style="color: white;"> WELCOME <?php echo $_SESSION[_STR_LOGIN_ID]; ?>😀</span>          
+                    <span class="nav-link" style="color: white;"> 11WELCOME <?php echo $_SESSION[_STR_LOGIN_ID]; ?>😀</span>          
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"  href="/user/my">MY</a>

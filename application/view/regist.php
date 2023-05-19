@@ -13,14 +13,12 @@
 <?php include_once( URL_NAV ) ?>
 <div class="container">
     <h3>회원가입</H3>
-
     <!-- if작성 -->
     <?php if(isset($this->errMsg)) { ?>
         <div>
             <span> <?php echo $this->errMsg ?> </span>
         </div>
     <?php } ?>
-
     <!-- 삼항연산자
     <div>
         <span><?php echo(isset($this->errMsg) ? $this->errMsg :"")?> </span>
@@ -30,7 +28,7 @@
         <label for="id"></label>
         <input type="text" name="id" id="id" placeholder="ID" value="<?php echo isset($_POST['id']) ? $_POST['id'] : '' ?>">
         <!-- <input type="text" name="id" id="id" placeholder="ID"> -->
-        <button type="button" class="btn1 btn-light" onclick="chkDuplicationId()">중복체크</button>
+        <button type="button" class="btn btn-light" id="btn1" onclick="chkDuplicationId()">중복체크</button>
         <span id="errMsgId">
             <?php if(isset($this->arrError["id"])) {
                 echo $this->arrError["id"];
@@ -61,7 +59,7 @@
             } ?>
         </span>
         <br>
-        <button type="submit" class="btn2 btn-light">JOIN</button>
+        <button type="submit" class="btn btn-light" id="btn2">JOIN</button>
     </form>
         </div>    
     <script src="/application/view/js/common.js"></script>
