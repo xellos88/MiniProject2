@@ -116,7 +116,6 @@ class UserController extends Controller {//UserController 클래스가 Controlle
         $id['id'] = $_SESSION[_STR_LOGIN_ID];
         $userInfo = $this->model->getUser($id, false);
         $this->addDynamicProperty("userInfo" ,$userInfo[0]);
-        var_dump($userInfo);
         return "my"._EXTENSION_PHP;
     }
 
